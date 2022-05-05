@@ -3,7 +3,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class PartialHeapSort {
-
+    
+    public static int count = 0;
     private static int[] Heap;
     private static int size;
     private int maxsize;
@@ -19,11 +20,7 @@ public class PartialHeapSort {
 
         long start = System.currentTimeMillis();
         findHeapSort(4);
-        long end = System.currentTimeMillis();
-        NumberFormat formatter = new DecimalFormat("#0.00000");
-        System.out.println();
-        System.out.print("Execution time is " + formatter.format((end - start) / 1000d) + " seconds");
-
+        System.out.println("count: " + count);
     }
 
 
@@ -51,6 +48,7 @@ public class PartialHeapSort {
         tmp = Heap[fpos];
         Heap[fpos] = Heap[spos];
         Heap[spos] = tmp;
+        count++;
     }
 
     private static void maxHeapify(int pos)
