@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 public class QuickSort {
     static int[] arr;
-
+    public static int count;
     public static void main(String[] args)
     {
         FileOperation fileOperation = new FileOperation();
@@ -31,6 +31,7 @@ public class QuickSort {
 
     static void swap(int[] arr, int i, int j)
     {
+        count++;
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -44,6 +45,7 @@ public class QuickSort {
 
         for(int j = low; j <= high - 1; j++)
         {
+            count++;
             if (arr[j] < pivot)
             {
                 i++;
@@ -56,9 +58,10 @@ public class QuickSort {
 
     static void quickSort(int[] arr, int low, int high)
     {
+        count++;
         if (low < high)
         {
-
+ 
             // pi is partitioning index, arr[p]
             // is now at right place
             int pi = partition(arr, low, high);
