@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 public class MergeSort {
+    public static int count = 0;
 
     public static void main (String[] args){
         FileOperation fileOperation = new FileOperation();
@@ -49,6 +50,7 @@ public class MergeSort {
         }
         i=0;j=0;k=l;
         while(i < n1 && j < n2) {
+            count++;
             if(L.get(i) <= R.get(j)) {
                 A.set(k, L.get(i));
                 i++;
@@ -78,5 +80,6 @@ public class MergeSort {
     public static void findMerge(ArrayList<Integer> A, int k) {
 
         System.out.println("\n" + A.get(k));
+        System.out.println("count: " + count);
     }
 }
