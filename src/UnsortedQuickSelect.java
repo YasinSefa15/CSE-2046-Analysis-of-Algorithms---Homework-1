@@ -3,6 +3,7 @@ import java.text.NumberFormat;
 
 //part 6
 public class UnsortedQuickSelect {
+    static int count;
     public static void main(String[] args) {
 
         FileOperation fileOperation = new FileOperation();
@@ -44,6 +45,7 @@ public class UnsortedQuickSelect {
         int pivot = arr[low], pivotLoc = low;
         int lastMinIndex = low;
         for (int i = low ; i <= high ; i++){
+            count++;
             if (arr[i] < pivot){
                 lastMinIndex = i;
                 int temp = arr[i];
