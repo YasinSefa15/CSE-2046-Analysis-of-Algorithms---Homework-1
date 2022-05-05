@@ -3,6 +3,7 @@ import java.text.NumberFormat;
 
 public class MedianOfThree {
     private static int []a;
+    public static int count;
     public static void main(String[] args) {
         FileOperation fileOperation = new FileOperation();
         a = FileOperation.randomVariablesArray;
@@ -26,6 +27,7 @@ public class MedianOfThree {
     // This method is used to sort the array using quicksort algorithm.
     // It takes left and the right end of the array as two cursors
     private static void quickSort(int left,int right){
+        count++;
         // If both cursor scanned the complete array, quicksort exits
         if(left >= right)
             return;
@@ -41,11 +43,16 @@ public class MedianOfThree {
 
     // This method is used to partition the given array and returns the integer which points to the sorted pivot index
     private static int partition(int left,int right,int pivot){
+        int c1,c2;
         int leftCursor = left-1;
         int rightCursor = right;
         while(leftCursor < rightCursor){
-            while(a[++leftCursor] < pivot);
-            while(rightCursor > 0 && a[--rightCursor] > pivot);
+            while(a[++leftCursor] < pivot){
+            c1++;
+                };
+            while(rightCursor > 0 && a[--rightCursor] > pivot){
+            c2++;
+            };
             if(leftCursor >= rightCursor){
                 break;
             }else{
@@ -53,12 +60,13 @@ public class MedianOfThree {
             }
         }
         swap(leftCursor, right);
+        count=c1+c2;
         return leftCursor;
     }
 
     public static int getMedian(int left,int right){
         int center = (left+right)/2;
-
+        count++;
         if(a[left] > a[center])
             swap(left,center);
 
@@ -74,6 +82,7 @@ public class MedianOfThree {
 
     // This method is used to swap the values between the two given index
     public static void swap(int left,int right){
+        count++;
         int temp = a[left];
         a[left] = a[right];
         a[right] = temp;
