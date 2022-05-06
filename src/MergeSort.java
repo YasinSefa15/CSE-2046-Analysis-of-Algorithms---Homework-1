@@ -4,14 +4,15 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 public class MergeSort {
-    public static int count = 0;
+    public static long count = 0;
 
     public static void main (String[] args){
         FileOperation fileOperation = new FileOperation();
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
             FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputList();
+            count = 0;
             mergeSort(FileOperation.reversedSortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1);
-
             System.out.println("input size : " + FileOperation.inputSize + " count: " + count);
         }
     }

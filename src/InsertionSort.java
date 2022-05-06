@@ -11,7 +11,7 @@ public class InsertionSort {
     static ArrayList<Integer> sortedArray;
     public static void main(String[] args){
         FileOperation fileOperation = new FileOperation();
-        insertionSort(FileOperation.reversedSortedVariablesList);
+        insertionSort(FileOperation.sortedVariablesList);
         System.out.println(count + innerCount);
     }
 

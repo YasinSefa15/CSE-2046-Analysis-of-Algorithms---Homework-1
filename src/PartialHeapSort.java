@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 
 public class PartialHeapSort {
     //EKSİK
-    public static long count = 0;
+    public static long count;
     private static int[] Heap;
     private static int size;
     private int maxsize;
@@ -13,18 +13,17 @@ public class PartialHeapSort {
     {
         FileOperation fileOperation = new FileOperation();
 
-        Heap = FileOperation.randomVariablesArray;
-        size = Heap.length - 1;
-        int quarter = 1;
         int kth = 0;
-        System.out.println(FileOperation.sortedVariablesList.size());
         for (int i = 1 ; i < 4 ; i++){
-            kth = FileOperation.sortedVariablesArray.length / 4 * i;
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+                kth = FileOperation.sortedVariablesArray.length / 4 * i;
+                count = 0;
                 FileOperation.inputSize = FileOperation.inputSizes[j];
+                FileOperation.inputArray();
+                Heap = FileOperation.sortedVariablesArray;
+                size = FileOperation.inputSize - 1;
                 findHeapSort(kth);
-
-                System.out.println("quarter : " + i + " input size : " + FileOperation.inputSize + " count: " + count);
+                System.out.println("kth " + kth + " quarter : " + i + " input size : " + FileOperation.inputSize + " count: " + count);
             }
         }
     }

@@ -3,17 +3,21 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class PartialSelectionSort {
-    public static int count = 0;
+    public static long count = 0;
 
     public static void main(String[] args){
         FileOperation fileOperation = new FileOperation();
-        int kth = FileOperation.sortedVariablesList.size() / 4 * 1;
-        for (int i = 0 ; i < FileOperation.inputSizes.length ; i++){
-            FileOperation.inputSize = FileOperation.inputSizes[i];
-            partialSelectionSort(FileOperation.sortedVariablesList,kth);
-
-            System.out.println("input size : " + FileOperation.inputSize + " count: " + count);
+        for (int j = 1 ; j < 4 ; j++){
+            for (int i = 0 ; i < FileOperation.inputSizes.length ; i++){
+                count = 0;
+                FileOperation.inputSize = FileOperation.inputSizes[i];
+                int kth = FileOperation.inputSize / 4 * j;
+                FileOperation.inputList();
+                partialSelectionSort(FileOperation.sortedVariablesList,kth);
+                System.out.println("quarter : " + j + " kth " + kth + " input size : " + FileOperation.inputSize + " count: " + count);
+            }
         }
+
 
     }
     static ArrayList<Integer> partialSelectionSort(ArrayList<Integer> arr, int k) {
