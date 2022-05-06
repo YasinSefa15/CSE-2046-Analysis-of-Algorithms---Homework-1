@@ -17,7 +17,7 @@ public class PartialHeapSort {
         for (int i = 1 ; i < 4 ; i++){
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
                 kth = FileOperation.sortedVariablesArray.length / 4 * i;
-                count = 0;
+                count=0;  //ANLAMADIM
                 FileOperation.inputSize = FileOperation.inputSizes[j];
                 FileOperation.inputArray();
                 Heap = FileOperation.sortedVariablesArray;
@@ -58,14 +58,13 @@ public class PartialHeapSort {
 
     private static void maxHeapify(int pos)
     {
+        count++;
         if (isLeaf(pos))
             return;
 
-        if (Heap[pos] < Heap[leftChild(pos)]
-                || Heap[pos] < Heap[rightChild(pos)]) {
+        if (Heap[pos] < Heap[leftChild(pos)] || Heap[pos] < Heap[rightChild(pos)]) {
 
-            if (Heap[leftChild(pos)]
-                    > Heap[rightChild(pos)]) {
+            if (Heap[leftChild(pos)] > Heap[rightChild(pos)]) {
                 swap(pos, leftChild(pos));
                 maxHeapify(leftChild(pos));
             }
