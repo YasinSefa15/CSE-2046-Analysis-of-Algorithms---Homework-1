@@ -3,24 +3,30 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class PartialHeapSort {
-    
-    public static int count = 0;
+    //EKSİK
+    public static long count = 0;
     private static int[] Heap;
     private static int size;
     private int maxsize;
 
     public static void main(String[] arg)
     {
-        //BURAYI DÜZENLEYELİM
-
         FileOperation fileOperation = new FileOperation();
-        Heap = FileOperation.randomVariablesArray;
-        size = 0;
-        //4'th smallest element
 
-        long start = System.currentTimeMillis();
-        findHeapSort(4);
-        System.out.println("count: " + count);
+        Heap = FileOperation.randomVariablesArray;
+        size = Heap.length - 1;
+        int quarter = 1;
+        int kth = 0;
+        System.out.println(FileOperation.sortedVariablesList.size());
+        for (int i = 1 ; i < 4 ; i++){
+            kth = FileOperation.sortedVariablesArray.length / 4 * i;
+            for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+                FileOperation.inputSize = FileOperation.inputSizes[j];
+                findHeapSort(kth);
+
+                System.out.println("quarter : " + i + " input size : " + FileOperation.inputSize + " count: " + count);
+            }
+        }
     }
 
 
@@ -71,17 +77,7 @@ public class PartialHeapSort {
         }
     }
 
-    public void insert(int element)
-    {
-        Heap[size] = element;
 
-        int current = size;
-        while (Heap[current] > Heap[parent(current)]) {
-            swap(current, parent(current));
-            current = parent(current);
-        }
-        size++;
-    }
 
     public static int extractMax()
     {
@@ -94,9 +90,9 @@ public class PartialHeapSort {
     public static void findHeapSort(int k) {
         int length = size;
         for(int i = 0; i < length - k; i++) {
-            System.out.println(extractMax());
+            extractMax();
         }
-        System.out.println(k+"'th element : " + Heap[0]);
+        //System.out.println(k+"'th element : " + Heap[0]);
     }
 
 

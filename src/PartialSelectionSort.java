@@ -7,9 +7,13 @@ public class PartialSelectionSort {
 
     public static void main(String[] args){
         FileOperation fileOperation = new FileOperation();
-        long start = System.currentTimeMillis();
-        System.out.println(partialSelectionSort(FileOperation.reversedSortedVariablesList,4));
-        System.out.println("count: " + count);
+        int kth = FileOperation.sortedVariablesList.size() / 4 * 1;
+        for (int i = 0 ; i < FileOperation.inputSizes.length ; i++){
+            FileOperation.inputSize = FileOperation.inputSizes[i];
+            partialSelectionSort(FileOperation.sortedVariablesList,kth);
+
+            System.out.println("input size : " + FileOperation.inputSize + " count: " + count);
+        }
 
     }
     static ArrayList<Integer> partialSelectionSort(ArrayList<Integer> arr, int k) {

@@ -8,19 +8,12 @@ public class MergeSort {
 
     public static void main (String[] args){
         FileOperation fileOperation = new FileOperation();
-        //long start = System.nanoTime();
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            mergeSort(FileOperation.reversedSortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1);
 
-        Instant start = Instant.now();
-        System.out.println(mergeSort(FileOperation.randomVariablesList,0,FileOperation.randomVariablesList.size() - 1));
-
-        Instant end = Instant.now();
-        System.out.println(Duration.between(start, end));
-
-
-        System.exit(44);
-        //long end = System.nanoTime() - start;
-
-
+            System.out.println("input size : " + FileOperation.inputSize + " count: " + count);
+        }
     }
 
     public static ArrayList<Integer> mergeSort(ArrayList<Integer> A, int l, int r) {
@@ -43,9 +36,11 @@ public class MergeSort {
         ArrayList<Integer> R = new ArrayList<Integer>();
 
         for(i = 0; i < n1; i++) {
+            count++;
             L.add(A.get(l+i));
         }
         for(j = 0; j < n2; j++) {
+            count++;
             R.add(A.get(m+1+j));
         }
         i=0;j=0;k=l;
@@ -62,24 +57,15 @@ public class MergeSort {
             k++;
         }
         while(i < n1) {
+            count++;
             A.set(k, L.get(i));
             i++;k++;
         }
         while(j < n2) {
+            count++;
             A.set(k, R.get(j));
             j++;k++;
         }
 
-    }
-
-    public static void printList(ArrayList<Integer> A) {
-        for(int i = 0; i < A.size(); i++) {
-            System.out.print(A.get(i) + " ");
-        }
-    }
-    public static void findMerge(ArrayList<Integer> A, int k) {
-
-        System.out.println("\n" + A.get(k));
-        System.out.println("count: " + count);
     }
 }

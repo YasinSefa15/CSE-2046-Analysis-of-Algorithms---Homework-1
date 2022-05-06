@@ -3,21 +3,27 @@ import java.text.NumberFormat;
 
 public class MedianOfThree {
     private static int []a;
-    public static int count;
+    public static long count;
     public static void main(String[] args) {
         FileOperation fileOperation = new FileOperation();
         a = FileOperation.randomVariablesArray;
-        long start = System.currentTimeMillis();
-        sort();
-        long end = System.currentTimeMillis();
 
-        NumberFormat formatter = new DecimalFormat("#0.00000");
-        System.out.println();
-        System.out.print("Execution time is " + formatter.format((end - start) / 1000d) + " seconds");
+        //index + 1
+        int kth = 1;
+        count = 0;
+        sort();
+        System.exit(66);
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            sort();
+
+            System.out.println("input size : " + FileOperation.inputSize + " count: " + count);
+        }
     }
 
     // This method sorts an array and internally calls quickSort
     public static void sort(){
+        System.out.println("sort");
         int left = 0;
         int right = a.length-1;
 
@@ -43,7 +49,7 @@ public class MedianOfThree {
 
     // This method is used to partition the given array and returns the integer which points to the sorted pivot index
     private static int partition(int left,int right,int pivot){
-        int c1,c2;
+        int c1 = 0,c2 = 0;
         int leftCursor = left-1;
         int rightCursor = right;
         while(leftCursor < rightCursor){

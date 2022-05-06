@@ -16,14 +16,17 @@ public class FileOperation {
     static int[] inputSizes; //will show the all input sizes
     static int inputSize; // shows which input we are working on depending on the size
 
- /*   public static void main(String[] args){
-        inputSizes = new int[]{1000,2000,5000,10000,33001,50000,75000,100000};
+/*    public static void main(String[] args){
+        //inputSizes = new int[]{1000,2000,5000,10000,33001,50000,75000,100000};
+        inputSizes = new int[]{20000};
         fileWrite();
     }*/
 
     public FileOperation()  {
-        inputSizes = new int[]{1000,2000,5000,10000,33001,50000,75000,100000};
-        inputSize = 100000;
+        //inputSizes = new int[]{7500};
+        //fileWrite();
+        inputSizes = new int[]{1000,2000,5000,10000,15000};
+        inputSize = 1000;
         inputList();
         inputArray();
     }
@@ -69,7 +72,7 @@ public class FileOperation {
                 index = 0;
                 lineCount++;
             }
-         /*   System.out.println("random : ");
+           /* System.out.println("random : ");
             for (int i = 0 ; i < randomVariablesArray.length ; i++ ){
                 System.out.print(randomVariablesArray[i] + " ");
             }

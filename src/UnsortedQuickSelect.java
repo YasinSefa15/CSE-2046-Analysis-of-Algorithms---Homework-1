@@ -7,25 +7,24 @@ public class UnsortedQuickSelect {
     public static void main(String[] args) {
 
         FileOperation fileOperation = new FileOperation();
-        int[] array = FileOperation.randomVariablesArray;
 
         //index + 1
-        int kPosition = 1;
-        int length = array.length;
+        int kth = 1;
 
-        if (kPosition > length) {
-            System.out.println("Index out of bound");
+        int quarter = 1;
+        System.out.println(FileOperation.sortedVariablesList.size());
+        for ( ; quarter < 4 ; quarter++){
+            kth = FileOperation.sortedVariablesArray.length / 4 * quarter;
+            for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+                FileOperation.inputSize = FileOperation.inputSizes[j];
+                kthSmallest(FileOperation.reversedSortedVariablesArray, 0, FileOperation.sortedVariablesArray.length - 1, kth);
+
+                System.out.println("quarter : " + quarter + " input size : " + FileOperation.inputSize + " count: " + count);
+            }
         }
-        else {
-            long start = System.currentTimeMillis();
-            System.out.println("K-th smallest element in array : " + kthSmallest(array, 0, length - 1, kPosition));
+        //System.out.println("K-th smallest element in array : " + kthSmallest(array, 0, length - 1, kPosition));
 
-            NumberFormat formatter = new DecimalFormat("#0.00000");
 
-            long end = System.currentTimeMillis();
-            System.out.println();
-            System.out.print("Execution time is " + formatter.format((end - start) / 1000d) + " seconds");
-        }
     }
 
     public static int kthSmallest(int[] arr, int low, int high, int k) {
