@@ -10,7 +10,7 @@ public class MedianOfThree {
 
         //index + 1
         int kth = 1;
-        count = 0;
+        public static int count = 0;
         sort();
         System.exit(66);
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
@@ -66,7 +66,7 @@ public class MedianOfThree {
             }
         }
         swap(leftCursor, right);
-        count=c1+c2;
+        count=count+c1+c2;
         return leftCursor;
     }
 
