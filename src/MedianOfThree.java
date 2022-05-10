@@ -9,25 +9,47 @@ public class MedianOfThree {
         FileOperation fileOperation = new FileOperation();
 
 
-        System.out.println("Sorted : ");
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on RandomValuesArray : ");
+        System.out.println("------------------------------------------------------");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputArray();
+            quickSort(FileOperation.randomVariablesArray);
+            System.out.println("Result Array in RandomVariableArray: ");
+            for (int k : FileOperation.randomVariablesArray ){
+                System.out.print(k + " ");
+            }
+            System.out.println("\ninput size : " + FileOperation.inputSize + " | count: " + count + "\n");
+        }
+
+
+
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on Sorted Array : ");
+        System.out.println("------------------------------------------------------");
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
             count = 0;
             FileOperation.inputSize = FileOperation.inputSizes[j];
             FileOperation.inputArray();
             quickSort(FileOperation.sortedVariablesArray);
-            System.out.println("Result Array : ");
-            for (int k : FileOperation.sortedVariablesList ){
+            System.out.println("Result Array in SortedVariableArray: ");
+            for (int k : FileOperation.sortedVariablesArray ){
                 System.out.print(k + " ");
             }
-            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+            System.out.println("\ninput size : " + FileOperation.inputSize + " | count: " + count + "\n");
         }
-        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+
+        System.out.println("------------------------------------------------------");
+        System.out.println("\nOperation on ReverseSorted Array : ");
+        System.out.println("------------------------------------------------------");
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
             count = 0;
             FileOperation.inputSize = FileOperation.inputSizes[j];
             FileOperation.inputArray();
             quickSort(FileOperation.reversedSortedVariablesArray);
-            System.out.println("Result Array : ");
+            System.out.println("Result Array in ReverseSortedVariableArray : ");
             for (int k : FileOperation.reversedSortedVariablesArray ){
                 System.out.print(k + " ");
             }

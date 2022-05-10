@@ -9,22 +9,40 @@ public class MergeSort {
     public static void main (String[] args){
         FileOperation fileOperation = new FileOperation();
 
-        System.out.println("Sorted : ");
+
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on RandomValues List : ");
+        System.out.println("------------------------------------------------------");
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
             count = 0;
             FileOperation.inputSize = FileOperation.inputSizes[j];
             FileOperation.inputList();
-            System.out.println("Result List : ");
+            System.out.println("Result List in RandomVariableList: ");
+            System.out.print(mergeSort(FileOperation.randomVariablesList, 0,FileOperation.sortedVariablesList.size() - 1) + "\n");
+            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+        }
+
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on Sorted List : ");
+        System.out.println("------------------------------------------------------");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputList();
+            System.out.println("Result List in SortedVariableList: ");
             System.out.println(mergeSort(FileOperation.sortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1));
             System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
         }
 
-        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+
+        System.out.println("------------------------------------------------------");
+        System.out.println("\nOperation on ReverseSorted List : ");
+        System.out.println("------------------------------------------------------");
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
             count = 0;
             FileOperation.inputSize = FileOperation.inputSizes[j];
             FileOperation.inputList();
-            System.out.println("Result List : ");
+            System.out.println("Result List in ReverseSortedVariableList : ");
             System.out.println(mergeSort(FileOperation.reversedSortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1));
             System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
         }

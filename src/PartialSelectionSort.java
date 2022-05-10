@@ -10,14 +10,33 @@ public class PartialSelectionSort {
         FileOperation fileOperation = new FileOperation();
         int kth = 0;
 
-        System.out.println("Sorted : ");
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on RandomValues List : ");
+        System.out.println("------------------------------------------------------");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputList();
+            System.out.println("Result List in RandomVariableList: ");
+            myList =  partialSelectionSort(FileOperation.randomVariablesList,kth);
+            for (int k : myList){
+                System.out.print(k + " ");
+            }
+            System.out.println("\nKth element : " + myList.get(kth));
+            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+        }
+
+
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on Sorted List : ");
+        System.out.println("------------------------------------------------------");
         for (int i = 1 ; i < 4 ; i++){
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
                 count = 0;
                 FileOperation.inputSize = FileOperation.inputSizes[j];
                 FileOperation.inputList();
                 kth = FileOperation.sortedVariablesList.size() / 4 * i;
-                System.out.println("Sorted Result List : ");
+                System.out.println("Result List in SortedVariableList: ");
                 myList =  partialSelectionSort(FileOperation.sortedVariablesList,kth);
                 for (int k : myList){
                     System.out.print(k + " ");
@@ -27,14 +46,16 @@ public class PartialSelectionSort {
             }
         }
 
-        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+        System.out.println("------------------------------------------------------");
+        System.out.println("\nOperation on ReverseSorted List : ");
+        System.out.println("------------------------------------------------------");
         for (int i = 1 ; i < 4 ; i++){
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
                 count = 0;
                 FileOperation.inputSize = FileOperation.inputSizes[j];
                 FileOperation.inputList();
                 kth = FileOperation.reversedSortedVariablesList.size() / 4 * i;
-                System.out.println("Reverse Sorted Result List : ");
+                System.out.println("Result List in ReverseSortedVariableList : ");
                 myList =  partialSelectionSort(FileOperation.reversedSortedVariablesList,kth);
                 for (int k : myList){
                     System.out.print(k + " ");

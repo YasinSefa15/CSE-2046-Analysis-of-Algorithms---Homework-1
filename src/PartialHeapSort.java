@@ -15,7 +15,32 @@ public class PartialHeapSort {
 
         int kth = 0;
 
-        System.out.println("Sorted : ");
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on RandomValuesArray : ");
+        System.out.println("------------------------------------------------------");
+        for (int i = 1 ; i < 4 ; i++){
+            for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+                count = 0;
+                FileOperation.inputSize = FileOperation.inputSizes[j];
+                FileOperation.inputArray();
+                Heap = FileOperation.randomVariablesArray;
+                size = FileOperation.inputSize - 1;
+                kth = FileOperation.randomVariablesArray.length / 4 * i;
+                findHeapSort(kth);
+                System.out.println("Result Array in RandomVariableArray: ");
+                for (int k : Heap ){
+                    System.out.print(k + " ");
+                }
+                System.out.println("\nKth element : " + Heap[kth]);
+                System.out.println("quarter : " + i + " | kth : " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+            }
+        }
+
+        System.exit(2);
+
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("Operation on Sorted Array : ");
+        System.out.println("------------------------------------------------------");
         for (int i = 1 ; i < 4 ; i++){
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
                 count = 0;
@@ -25,7 +50,7 @@ public class PartialHeapSort {
                 size = FileOperation.inputSize - 1;
                 kth = FileOperation.sortedVariablesArray.length / 4 * i;
                 findHeapSort(kth);
-                System.out.println("Result Array : ");
+                System.out.println("Result Array in SortedVariableArray: ");
                 for (int k : Heap ){
                     System.out.print(k + " ");
                 }
@@ -34,7 +59,9 @@ public class PartialHeapSort {
             }
         }
 
-        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+        System.out.println("------------------------------------------------------");
+        System.out.println("\nOperation on ReverseSorted Array : ");
+        System.out.println("------------------------------------------------------");
         for (int i = 1 ; i < 4 ; i++){
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
                 count = 0;
@@ -44,7 +71,7 @@ public class PartialHeapSort {
                 size = FileOperation.inputSize - 1;
                 kth = FileOperation.reversedSortedVariablesArray.length / 4 * i;
                 findHeapSort(kth);
-                System.out.println("Result Array : ");
+                System.out.println("Result Array in ReverseSortedVariableArray : ");
                 for (int k : Heap ){
                     System.out.print(k + " ");
                 }
