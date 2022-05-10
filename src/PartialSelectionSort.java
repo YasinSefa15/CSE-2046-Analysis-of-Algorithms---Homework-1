@@ -4,17 +4,43 @@ import java.util.ArrayList;
 
 public class PartialSelectionSort {
     public static long count = 0;
+    static ArrayList<Integer> myList;
 
     public static void main(String[] args){
         FileOperation fileOperation = new FileOperation();
-        for (int j = 1 ; j < 4 ; j++){
-            for (int i = 0 ; i < FileOperation.inputSizes.length ; i++){
+        int kth = 0;
+
+        System.out.println("Sorted : ");
+        for (int i = 1 ; i < 4 ; i++){
+            for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
                 count = 0;
-                FileOperation.inputSize = FileOperation.inputSizes[i];
-                int kth = FileOperation.inputSize / 4 * j;
+                FileOperation.inputSize = FileOperation.inputSizes[j];
                 FileOperation.inputList();
-                partialSelectionSort(FileOperation.sortedVariablesList,kth);
-                System.out.println("quarter : " + j + " kth " + kth + " input size : " + FileOperation.inputSize + " count: " + count);
+                kth = FileOperation.sortedVariablesList.size() / 4 * i;
+                System.out.println("Sorted Result List : ");
+                myList =  partialSelectionSort(FileOperation.sortedVariablesList,kth);
+                for (int k : myList){
+                    System.out.print(k + " ");
+                }
+                System.out.println("\nKth element : " + myList.get(kth));
+                System.out.println("quarter : " + i + " | kth : " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+            }
+        }
+
+        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+        for (int i = 1 ; i < 4 ; i++){
+            for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+                count = 0;
+                FileOperation.inputSize = FileOperation.inputSizes[j];
+                FileOperation.inputList();
+                kth = FileOperation.reversedSortedVariablesList.size() / 4 * i;
+                System.out.println("Reverse Sorted Result List : ");
+                myList =  partialSelectionSort(FileOperation.reversedSortedVariablesList,kth);
+                for (int k : myList){
+                    System.out.print(k + " ");
+                }
+                System.out.println("\nKth element : " + myList.get(kth));
+                System.out.println("quarter : " + i + " | kth : " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
             }
         }
 

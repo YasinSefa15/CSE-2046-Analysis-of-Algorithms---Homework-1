@@ -14,18 +14,46 @@ public class PartialHeapSort {
         FileOperation fileOperation = new FileOperation();
 
         int kth = 0;
+
+        System.out.println("Sorted : ");
         for (int i = 1 ; i < 4 ; i++){
             for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
-                kth = FileOperation.sortedVariablesArray.length / 4 * i;
-                count=0;  //ANLAMADIM
+                count = 0;
                 FileOperation.inputSize = FileOperation.inputSizes[j];
                 FileOperation.inputArray();
                 Heap = FileOperation.sortedVariablesArray;
                 size = FileOperation.inputSize - 1;
+                kth = FileOperation.sortedVariablesArray.length / 4 * i;
                 findHeapSort(kth);
-                System.out.println("kth " + kth + " quarter : " + i + " input size : " + FileOperation.inputSize + " count: " + count);
+                System.out.println("Result Array : ");
+                for (int k : Heap ){
+                    System.out.print(k + " ");
+                }
+                System.out.println("\nKth element : " + Heap[kth]);
+                System.out.println("quarter : " + i + " | kth : " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
             }
         }
+
+        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+        for (int i = 1 ; i < 4 ; i++){
+            for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+                count = 0;
+                FileOperation.inputSize = FileOperation.inputSizes[j];
+                FileOperation.inputArray();
+                Heap = FileOperation.reversedSortedVariablesArray;
+                size = FileOperation.inputSize - 1;
+                kth = FileOperation.reversedSortedVariablesArray.length / 4 * i;
+                findHeapSort(kth);
+                System.out.println("Result Array : ");
+                for (int k : Heap ){
+                    System.out.print(k + " ");
+                }
+                System.out.println("\nKth element : " + Heap[kth]);
+
+                System.out.println("quarter : " + i + " | kth " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+            }
+        }
+
     }
 
 
@@ -33,10 +61,12 @@ public class PartialHeapSort {
 
     private int parent(int pos) { return (pos - 1) / 2; }
 
-    private static int leftChild(int pos) { return (2 * pos) + 1; }
+    private static int leftChild(int pos) { return  (2 * pos) + 1 > size ?  pos : (2 * pos) + 1 ; }
 
 
-    private static int rightChild(int pos){ return (2 * pos) + 2; }
+    private static int rightChild(int pos){
+
+        return (2 * pos) + 2 > size ?  pos : (2 * pos) + 2 ; }
 
 
     private static boolean isLeaf(int pos)

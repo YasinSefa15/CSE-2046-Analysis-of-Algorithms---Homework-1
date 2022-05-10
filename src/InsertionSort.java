@@ -6,13 +6,30 @@ import java.util.ArrayList;
 
 public class InsertionSort {
     static long count=0;
-    static long innerCount;
+
 
     static ArrayList<Integer> sortedArray;
     public static void main(String[] args){
         FileOperation fileOperation = new FileOperation();
-        insertionSort(FileOperation.sortedVariablesList);
-        System.out.println(count + innerCount);
+        System.out.println("Sorted : ");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputList();
+            System.out.println("Result Array : ");
+            System.out.print(insertionSort(FileOperation.sortedVariablesList) + "\n");
+            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+        }
+        System.out.println("\nReverse Array : ");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputList();
+            insertionSort(FileOperation.reversedSortedVariablesList);
+            System.out.println("Result Array : ");
+            System.out.print(insertionSort(FileOperation.sortedVariablesList) + "\n");
+            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+        }
     }
 
 
@@ -24,7 +41,7 @@ public class InsertionSort {
                int j=i-1;
                count++;
                while (j>=0 && inputs.get(j)>temp){
-                   innerCount++;
+                   count++;
                    inputs.set(j+1,inputs.get(j));
                    j--;
                }

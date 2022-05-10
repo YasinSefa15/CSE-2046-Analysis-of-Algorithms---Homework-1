@@ -10,8 +10,32 @@ public class QuickSort {
     public static int count;
     public static void main(String[] args) throws InterruptedException {
         FileOperation fileOperation = new FileOperation();
-        quickSort(FileOperation.reversedSortedVariablesArray, 0, FileOperation.randomVariablesArray.length - 1);//System.out.println(arr[kth]);
-        System.out.println(count);
+
+        System.out.println("Sorted : ");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputArray();
+            quickSort(FileOperation.sortedVariablesArray, 0, FileOperation.randomVariablesArray.length - 1);
+            System.out.println("Result Array : ");
+            for (int k : FileOperation.sortedVariablesList ){
+                System.out.print(k + " ");
+            }
+            System.out.println("\ninput size : " + FileOperation.inputSize + " count: " + count + "\n");
+        }
+        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputArray();
+            quickSort(FileOperation.reversedSortedVariablesArray, 0, FileOperation.randomVariablesArray.length - 1);//System.out.println(arr[kth]);
+            System.out.println("Result Array : ");
+            for (int k : FileOperation.reversedSortedVariablesArray ){
+                System.out.print(k + " ");
+            }
+
+            System.out.println("\ninput size : " + FileOperation.inputSize + " count: " + count + "\n");
+        }
     }
 
     static void swap(int[] arr, int i, int j)

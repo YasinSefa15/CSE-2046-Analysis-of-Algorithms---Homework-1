@@ -8,12 +8,25 @@ public class MergeSort {
 
     public static void main (String[] args){
         FileOperation fileOperation = new FileOperation();
+
+        System.out.println("Sorted : ");
         for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
+            count = 0;
             FileOperation.inputSize = FileOperation.inputSizes[j];
             FileOperation.inputList();
+            System.out.println("Result List : ");
+            System.out.println(mergeSort(FileOperation.sortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1));
+            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
+        }
+
+        System.out.println("\n-------------------------------------------------\nReverse Array : \n");
+        for (int j = 0 ; j < FileOperation.inputSizes.length ; j++){
             count = 0;
-            mergeSort(FileOperation.reversedSortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1);
-            System.out.println("input size : " + FileOperation.inputSize + " count: " + count);
+            FileOperation.inputSize = FileOperation.inputSizes[j];
+            FileOperation.inputList();
+            System.out.println("Result List : ");
+            System.out.println(mergeSort(FileOperation.reversedSortedVariablesList,0,FileOperation.sortedVariablesList.size() - 1));
+            System.out.println("input size : " + FileOperation.inputSize + " | count: " + count + "\n");
         }
     }
 
