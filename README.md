@@ -1,6 +1,6 @@
 # FileOperations
 
-Contributors 
-*Yasin Sefa Kırman - 150119034
-*Berkkan Rençber - 150119011
-*Murat Özcan - 150 -119008
+**Contributors** <br />
+*Yasin Sefa Kırman - 150119034<br />
+*Berkkan Rençber - 150119011<br />
+*Murat Özcan - 150119008
