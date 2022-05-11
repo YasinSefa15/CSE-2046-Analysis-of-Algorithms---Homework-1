@@ -1,4 +1,4 @@
-# FileOperations
+# CSE-2046-Analysis-of-Algorithms---Homework-1
 
 ## **Contributors** <br />
 * Yasin Sefa Kırman - 150119034<br />
