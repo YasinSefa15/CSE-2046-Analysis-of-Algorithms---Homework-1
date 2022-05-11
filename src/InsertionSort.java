@@ -1,16 +1,11 @@
-import java.io.File;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
-
 public class InsertionSort {
-    static long count=0;
-
+    static long count; //stands for the number of executions
 
     static ArrayList<Integer> sortedArray;
     public static void main(String[] args){
-        FileOperation fileOperation = new FileOperation();
+        FileOperation fileOperation = new FileOperation(); //to use constructor in FileOperation created object
 
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on RandomValues Array : ");

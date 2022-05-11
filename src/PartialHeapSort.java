@@ -1,20 +1,12 @@
-import java.io.File;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 public class PartialHeapSort {
-    //EKSİK
     public static long count;
-    private static int[] Heap;
+    private static int[] Heap;//stands for the number of executions
     private static int size;
-    private int maxsize;
 
     public static void main(String[] arg)
     {
-        FileOperation fileOperation = new FileOperation();
-
-        int kth = 0;
-
+        FileOperation fileOperation = new FileOperation();//to use constructor in FileOperation created object
+        int kth;
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on RandomValuesArray : ");
         System.out.println("------------------------------------------------------");
@@ -31,12 +23,11 @@ public class PartialHeapSort {
                 for (int k : Heap ){
                     System.out.print(k + " ");
                 }
-                System.out.println("\nKth element : " + Heap[kth]);
+                System.out.println("\nKth element : " + Heap[0]);
                 System.out.println("quarter : " + i + " | kth : " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
             }
         }
 
-        System.exit(2);
 
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on Sorted Array : ");
@@ -54,7 +45,7 @@ public class PartialHeapSort {
                 for (int k : Heap ){
                     System.out.print(k + " ");
                 }
-                System.out.println("\nKth element : " + Heap[kth]);
+                System.out.println("\nKth element : " + Heap[0]);
                 System.out.println("quarter : " + i + " | kth : " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
             }
         }
@@ -75,7 +66,7 @@ public class PartialHeapSort {
                 for (int k : Heap ){
                     System.out.print(k + " ");
                 }
-                System.out.println("\nKth element : " + Heap[kth]);
+                System.out.println("\nKth element : " + Heap[0]);
 
                 System.out.println("quarter : " + i + " | kth " + kth +" | input size : " + FileOperation.inputSize + " | count: " + count + "\n");
             }
@@ -83,26 +74,11 @@ public class PartialHeapSort {
 
     }
 
-
-
-
-    private int parent(int pos) { return (pos - 1) / 2; }
-
     private static int leftChild(int pos) { return  (2 * pos) + 1 > size ?  pos : (2 * pos) + 1 ; }
 
+    private static int rightChild(int pos){ return (2 * pos) + 2 > size ?  pos : (2 * pos) + 2 ; }
 
-    private static int rightChild(int pos){
-
-        return (2 * pos) + 2 > size ?  pos : (2 * pos) + 2 ; }
-
-
-    private static boolean isLeaf(int pos)
-    {
-        if (pos > (size / 2) && pos <= size) {
-            return true;
-        }
-        return false;
-    }
+    private static boolean isLeaf(int pos) { return pos > (size / 2) && pos <= size; }
 
     private static void swap(int fpos, int spos)
     {

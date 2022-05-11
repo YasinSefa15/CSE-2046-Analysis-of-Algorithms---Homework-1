@@ -1,14 +1,9 @@
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 public class MergeSort {
-    public static long count = 0;
+    public static long count;//stands for the number of executions
 
     public static void main (String[] args){
-        FileOperation fileOperation = new FileOperation();
-
+        FileOperation fileOperation = new FileOperation();//to use constructor in FileOperation created object
 
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on RandomValues List : ");

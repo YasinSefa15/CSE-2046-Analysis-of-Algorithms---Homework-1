@@ -1,13 +1,8 @@
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 public class MedianOfThree {
-    private static int []a;
-    public static long count;
+    public static long count;//stands for the number of executions
 
     public static void main(String[] args) {
-        FileOperation fileOperation = new FileOperation();
-
+        FileOperation fileOperation = new FileOperation();//to use constructor in FileOperation created object
 
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on RandomValuesArray : ");
@@ -23,8 +18,6 @@ public class MedianOfThree {
             }
             System.out.println("\ninput size : " + FileOperation.inputSize + " | count: " + count + "\n");
         }
-
-
 
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on Sorted Array : ");

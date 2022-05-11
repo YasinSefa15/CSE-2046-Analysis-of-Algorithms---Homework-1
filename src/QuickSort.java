@@ -1,15 +1,9 @@
-import java.io.File;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 public class QuickSort {
-    public static int count;
+
+    public static int count; //stands for the number of executions
 
     public static void main(String[] args) throws InterruptedException {
-        FileOperation fileOperation = new FileOperation();
+        FileOperation fileOperation = new FileOperation(); //to use constructor in FileOperation created object
 
 
         System.out.println("\n------------------------------------------------------");
@@ -26,7 +20,6 @@ public class QuickSort {
             }
             System.out.println("\ninput size : " + FileOperation.inputSize + " | count: " + count + "\n");
         }
-
 
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on Sorted Array : ");
@@ -69,7 +62,6 @@ public class QuickSort {
     }
     static int partition(int[] arr, int low, int high)
     {
-
         // pivot
         int pivot = arr[high];
         int i = (low - 1);
@@ -92,7 +84,6 @@ public class QuickSort {
         count++;
         if (low < high)
         {
-
             // pi is partitioning index, arr[p]
             // is now at right place
             int pi = partition(arr, low, high);
@@ -103,5 +94,4 @@ public class QuickSort {
             quickSort(arr, pi + 1, high);
         }
     }
-
 }

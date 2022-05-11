@@ -1,14 +1,13 @@
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
-//part 6
 public class UnsortedQuickSelect {
-    static int count;
+
+    static int count;//stands for the number of executions
 
     public static void main(String[] args) {
-        FileOperation fileOperation = new FileOperation();
-        int kth = 1;
+        FileOperation fileOperation = new FileOperation();//to use constructor in FileOperation created object
+        int kth;
 
+        ////****IMPORTANT NOTE : PRINTED MESSAGES ON THE LOOP CONSISTS OF RANDOM VALUES DOES NOT FIT THE CONSOLE****////
+        ////****WE SUGGEST TO UNCOMMENT LINE 30 TO SEE RESULTS BELONG TO RANDOM VALUE LIST****////
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on RandomValuesArray : ");
         System.out.println("------------------------------------------------------");
@@ -28,7 +27,7 @@ public class UnsortedQuickSelect {
             }
         }
 
-        System.exit(2);
+        //System.exit(41);
         System.out.println("\n------------------------------------------------------");
         System.out.println("Operation on Sorted Array : ");
         System.out.println("------------------------------------------------------");
@@ -82,6 +81,7 @@ public class UnsortedQuickSelect {
             return kthSmallest(arr, low, partition - 1, k);
         }
     }
+
     public static int partition(int[] arr, int low, int high) {
         int pivot = arr[low], pivotLoc = low;
         int lastMinIndex = low;
@@ -101,5 +101,4 @@ public class UnsortedQuickSelect {
 
         return pivotLoc;
     }
-
 }
